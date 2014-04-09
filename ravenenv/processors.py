@@ -5,7 +5,9 @@ class AddEnviromentContext(processors.Processor):
     def get_env_info(self):
         """return environment variables as dict"""
         import os
-        return os.environ
+        dict = {}
+        dict.update(os.environ)
+        return dict
 
     def process(self, data, **kwargs):
         """add to massage date environment variables"""
