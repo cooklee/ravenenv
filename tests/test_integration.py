@@ -18,7 +18,7 @@ def test_check_if_message_contains_all_standard_data(raven_client):
     standard_message = DummyClient().build_msg('raven.events.Exception', tags=None, exc_info=None)
     for var in standard_message:
         assert var in message
-        if var == 'event_id' or var == 'timestamp' or var == 'extra':
+        if var in ('event_id', 'timestamp', 'extra'):
             continue
         assert standard_message[var] == message[var]
 
